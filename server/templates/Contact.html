@@ -1,0 +1,447 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Dealerships{% endblock %}
+
+{% block extra_css %}
+<style>
+    .contact-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 20px;
+    }
+    
+    .contact-header {
+        text-align: center;
+        margin-bottom: 50px;
+        background: linear-gradient(135deg, darkturquoise, #20b2aa);
+        color: white;
+        padding: 60px 40px;
+        border-radius: 15px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+    
+    .contact-header h1 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    .contact-header p {
+        font-size: 1.3rem;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.95;
+    }
+    
+    .contact-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+        margin-bottom: 50px;
+    }
+    
+    .contact-info-section {
+        background: #f8f9fa;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border-left: 5px solid darkturquoise;
+    }
+    
+    .contact-info-section h3 {
+        color: darkturquoise;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .info-card {
+        background: white;
+        padding: 25px;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        border-left: 4px solid transparent;
+    }
+    
+    .info-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border-left-color: darkturquoise;
+    }
+    
+    .info-card-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+    
+    .info-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, darkturquoise, #20b2aa);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 1.5rem;
+        color: white;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    
+    .info-card h4 {
+        margin: 0;
+        color: #333;
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+    
+    .info-card p {
+        margin: 0;
+        color: #666;
+        font-size: 1.1rem;
+        line-height: 1.6;
+    }
+    
+    .info-card a {
+        color: darkturquoise;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s ease;
+    }
+    
+    .info-card a:hover {
+        color: #20b2aa;
+        text-decoration: underline;
+    }
+    
+    .contact-form-section {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        border: 2px solid #e9ecef;
+    }
+    
+    .contact-form-section h3 {
+        color: darkturquoise;
+        margin-bottom: 30px;
+        font-size: 2rem;
+        text-align: center;
+    }
+    
+    .form-group {
+        margin-bottom: 25px;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1rem;
+    }
+    
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 15px;
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        font-size: 1rem;
+        transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        background: #fafafa;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus {
+        outline: none;
+        border-color: darkturquoise;
+        box-shadow: 0 0 0 3px rgba(72, 209, 204, 0.1);
+        background: white;
+    }
+    
+    .form-group textarea {
+        height: 120px;
+        resize: vertical;
+    }
+    
+    .submit-btn {
+        background: linear-gradient(135deg, darkturquoise, #20b2aa);
+        color: white;
+        padding: 15px 40px;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.2rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        width: 100%;
+        box-shadow: 0 4px 15px rgba(72, 209, 204, 0.3);
+    }
+    
+    .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(72, 209, 204, 0.4);
+    }
+    
+    .location-section {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        margin-top: 50px;
+    }
+    
+    .location-section h3 {
+        color: darkturquoise;
+        margin-bottom: 30px;
+        font-size: 2rem;
+    }
+    
+    .map-placeholder {
+        width: 100%;
+        height: 350px;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        border: 3px dashed #dee2e6;
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        font-size: 1.3rem;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .map-placeholder img {
+        max-width: 200px;
+        opacity: 0.6;
+        margin-bottom: 20px;
+    }
+    
+    .hours-section {
+        background: linear-gradient(135deg, #f8f9fa, white);
+        padding: 30px;
+        border-radius: 15px;
+        margin-top: 30px;
+        border: 2px solid #e9ecef;
+    }
+    
+    .hours-section h4 {
+        color: darkturquoise;
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+    }
+    
+    .hours-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+    
+    .hours-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    
+    .hours-item strong {
+        color: #333;
+    }
+    
+    .hours-item span {
+        color: darkturquoise;
+        font-weight: 600;
+    }
+    
+    @media (max-width: 768px) {
+        .contact-content {
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        .contact-info-section,
+        .contact-form-section {
+            padding: 30px 20px;
+        }
+        
+        .contact-header {
+            padding: 40px 20px;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.2rem;
+        }
+        
+        .hours-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+     <div class="map-placeholder">
+            <img src="{% static 'contactus.png' %}" alt="Contact Us Location">
+            <p>Interactive Map Coming Soon</p>
+            <small>456 Automotive Boulevard, Motor City Plaza, Detroit, MI 48201</small>
+        </div>
+    
+    <div class="contact-content">
+        <div class="contact-info-section">
+            <h3>Contact Information</h3>
+            
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">📍</div>
+                    <h4>Visit Our Showroom</h4>
+                </div>
+                <p>
+                    <strong>Best Cars Dealership</strong><br>
+                    456 Automotive Boulevard<br>
+                    Motor City Plaza, Suite 100<br>
+                    Detroit, MI 48201
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">📞</div>
+                    <h4>Call Us Today</h4>
+                </div>
+                <p>
+                    <strong>Sales:</strong> <a href="tel:555-AUTO-123">(555) AUTO-123</a><br>
+                    <strong>Service:</strong> <a href="tel:555-REPAIR-1">(555) REPAIR-1</a><br>
+                    <strong>Parts:</strong> <a href="tel:555-PARTS-99">(555) PARTS-99</a><br>
+                    <strong>Finance:</strong> <a href="tel:555-LOANS-24">(555) LOANS-24</a>
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">✉️</div>
+                    <h4>Email Departments</h4>
+                </div>
+                <p>
+                    <strong>General Info:</strong> <a href="mailto:info@bestcarsdealership.com">info@bestcarsdealership.com</a><br>
+                    <strong>Sales Team:</strong> <a href="mailto:sales@bestcarsdealership.com">sales@bestcarsdealership.com</a><br>
+                    <strong>Service Dept:</strong> <a href="mailto:service@bestcarsdealership.com">service@bestcarsdealership.com</a><br>
+                    <strong>Customer Care:</strong> <a href="mailto:support@bestcarsdealership.com">support@bestcarsdealership.com</a>
+                </p>
+            </div>
+            
+            <div class="info-card">
+                <div class="info-card-header">
+                    <div class="info-icon">🌐</div>
+                    <h4>Follow Us Online</h4>
+                </div>
+                <p>
+                    <strong>Website:</strong> <a href="https://www.bestcarsdealership.com" target="_blank">www.bestcarsdealership.com</a><br>
+                    <strong>Facebook:</strong> <a href="#" target="_blank">@BestCarsDealership</a><br>
+                    <strong>Instagram:</strong> <a href="#" target="_blank">@bestcars_official</a><br>
+                    <strong>Twitter:</strong> <a href="#" target="_blank">@BestCarsDealer</a>
+                </p>
+            </div>
+        </div>
+        
+        <div class="contact-form-section">
+            <h3>Send Us A Message</h3>
+            <form action="#" method="post">
+                <div class="form-group">
+                    <label for="full-name">Full Name *</label>
+                    <input type="text" id="full-name" name="full_name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+                
+                <div class="form-group">
+                    <label for="interest">I'm Interested In *</label>
+                    <select id="interest" name="interest" required>
+                        <option value="">Please select...</option>
+                        <option value="buying">Buying a Vehicle</option>
+                        <option value="selling">Selling My Vehicle</option>
+                        <option value="service">Service & Maintenance</option>
+                        <option value="parts">Parts & Accessories</option>
+                        <option value="financing">Financing Options</option>
+                        <option value="other">Other Inquiry</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">Subject *</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Your Message *</label>
+                    <textarea id="message" name="message" placeholder="Tell us how we can help you find your perfect vehicle..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+        </div>
+    </div>
+    
+    <div class="location-section">
+        <h3>Find Our Location</h3>
+       
+        
+        <div class="hours-section">
+            <h4>Business Hours</h4>
+            <div class="hours-grid">
+                <div class="hours-item">
+                    <strong>Monday:</strong>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Tuesday:</strong>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Wednesday:</strong>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Thursday:</strong>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Friday:</strong>
+                    <span>9:00 AM - 8:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Saturday:</strong>
+                    <span>9:00 AM - 6:00 PM</span>
+                </div>
+                <div class="hours-item">
+                    <strong>Sunday:</strong>
+                    <span>12:00 PM - 5:00 PM</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

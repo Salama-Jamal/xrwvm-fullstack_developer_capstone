@@ -1,6 +1,6 @@
 # Uncomment the required imports before adding the code
 
-# from django.shortcuts import render
+from django.shortcuts import render
 # from django.http import HttpResponseRedirect, HttpResponse
 # from django.contrib.auth.models import User
 # from django.shortcuts import get_object_or_404, render, redirect
@@ -25,18 +25,17 @@ logger = logging.getLogger(__name__)
 # Create a `login_request` view to handle sign in request
 @csrf_exempt
 def login_user(request):
-    # Get username and password from request.POST dictionary
-    data = json.loads(request.body)
-    username = data['userName']
-    password = data['password']
-    # Try to check if provide credential can be authenticated
-    user = authenticate(username=username, password=password)
-    data = {"userName": username}
-    if user is not None:
-        # If user is valid, call login method to login current user
-        login(request, user)
-        data = {"userName": username, "status": "Authenticated"}
-    return JsonResponse(data)
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({"username": user.username, "status": "success"})
+        else:
+            return JsonResponse({"status": "failed", "message": "Invalid credentials"})
+    else:
+        return JsonResponse({"status": "failed", "message": "POST request required"})
 
 # Create a `logout_request` view to handle sign out request
 # def logout_request(request):

@@ -26,16 +26,25 @@ logger = logging.getLogger(__name__)
 @csrf_exempt
 def login_user(request):
     if request.method == "POST":
-        username = request.POST.get("username")
-        password = request.POST.get("password")
+        data = json.loads(request.body)
+        username = data.get("username")
+        password = data.get("password")
+
         user = authenticate(username=username, password=password)
         if user is not None:
             login(request, user)
-            return JsonResponse({"username": user.username, "status": "success"})
+            return JsonResponse({"status": True, "userName": user.username})
         else:
-            return JsonResponse({"status": "failed", "message": "Invalid credentials"})
-    else:
-        return JsonResponse({"status": "failed", "message": "POST request required"})
+
+            from django.contrib.auth.models import User
+            try:
+                u = User.objects.get(username=username)
+                if not u.check_password(password):
+                    return JsonResponse({"status": False, "error": "Wrong password"})
+            except User.DoesNotExist:
+                return JsonResponse({"status": False, "error": "User not found"})
+
+            return JsonResponse({"status": False, "error": "Authentication failed"})
 
 # Create a `logout_request` view to handle sign out request
 def logout_user(request):

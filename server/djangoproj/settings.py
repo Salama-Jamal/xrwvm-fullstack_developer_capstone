@@ -61,6 +61,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
             os.path.join(BASE_DIR, 'frontend/static'),
             os.path.join(BASE_DIR, 'frontend/build'),
             os.path.join(BASE_DIR, 'frontend/build/static'),
@@ -75,14 +76,6 @@ TEMPLATES = [
             ],
         },
     },
-]
-
-
-# Add STATICFILES_DIRS at the bottom of settings.py
-STATICFILES_DIRS = [
-os.path.join(BASE_DIR, 'frontend/static'),
-os.path.join(BASE_DIR, 'frontend/build'),
-os.path.join(BASE_DIR, 'frontend/build/static'),
 ]
 
 WSGI_APPLICATION = 'djangoproj.wsgi.application'
@@ -145,6 +138,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Static files directories
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'frontend/static'),
     os.path.join(BASE_DIR, 'frontend/build'),

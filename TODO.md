@@ -1,0 +1,8 @@
+- [x] Stop Docker application using docker-compose down in server/database
+- [x] Rebuild Docker using docker-compose build in server/database
+- [x] Run Docker using docker-compose up -d in server/database
+- [ ] Test /fetchReviews/dealer/29 endpoint and capture screenshot
+- [ ] Test /fetchDealers endpoint and capture screenshot
+- [ ] Test /fetchDealer/3 endpoint and capture screenshot
+- [ ] Test /fetchDealers/Kansas endpoint and capture screenshot
+- [ ] Push app.js to GitHub

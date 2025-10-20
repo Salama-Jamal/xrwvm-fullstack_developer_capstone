@@ -5,4 +5,4 @@
 - [x] Test /fetchDealers endpoint and capture screenshot
 - [x] Test /fetchDealer/3 endpoint and capture screenshot
 - [x] Test /fetchDealers/Kansas endpoint and capture screenshot
-- [ ] Push app.js to GitHub
+- [x] Push app.js to GitHub

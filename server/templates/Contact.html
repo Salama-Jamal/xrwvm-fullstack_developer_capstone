@@ -1,88 +1,202 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Contact Us — Dealerships</title>
-  <style>
-    :root{--teal:#00c8bf;--muted:#6b7c93}
-    *{box-sizing:border-box}
-    body{font-family: 'Segoe UI', Roboto, Arial, sans-serif;margin:0;background:#fff}
+ <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    /* Top bar */
-    header{background:var(--teal);padding:22px 36px;display:flex;align-items:center;gap:30px}
-    .brand{font-size:36px;font-weight:800;color:#00393a}
-    nav{margin-left:auto}
-    nav a{color:rgba(0,0,0,0.65);text-decoration:none;margin-left:18px;font-weight:600}
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            background-color: #f5f5f5;
+        }
 
-    /* Card */
-    .page{padding:32px}
-    .card{max-width:1100px;margin:28px auto;padding:34px;border-radius:38px;background:#fff;box-shadow:6px 6px 0 rgba(0,0,0,0.06);border:1px solid rgba(0,0,0,0.06);position:relative}
+        header {
+            background-color: #00d4d4;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    /* hero image with watermark */
-    .hero-wrap{position:relative;border-bottom:1px solid #e6e6e6;padding-bottom:22px}
-    .hero-wrap img{display:block;margin:0 auto;max-width:750px;width:100%;height:auto}
-    .watermark{position:absolute;left:50%;top:34%;transform:translate(-50%,-30%);font-size:260px;font-weight:900;color:rgba(0,90,160,0.08);-webkit-text-stroke:3px rgba(0,90,160,0.22);pointer-events:none;white-space:nowrap}
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #000;
+        }
 
-    /* content columns */
-    .content{display:flex;gap:40px;padding-top:24px;align-items:flex-start}
-    .left{flex:1;display:flex;align-items:center;justify-content:center}
-    .support-icon{width:220px;height:220px;display:block}
-    .divider{width:2px;background:#bdbdbd;margin:20px 0}
-    .right{flex:1.2;padding-right:12px}
+        nav {
+            display: flex;
+            gap: 30px;
+        }
 
-    .right h3{color:var(--teal);margin:0 0 8px 0}
-    .right p{margin:6px 0;color:#3e6fb6;font-weight:700}
-    .small{font-weight:600;color:#3b6ea6;margin-top:14px}
+        nav a {
+            color: #000;
+            text-decoration: none;
+            font-size: 18px;
+            transition: opacity 0.3s;
+        }
 
-    /* responsive */
-    @media (max-width:880px){
-      .content{flex-direction:column;align-items:center}
-      .divider{display:none}
-      .watermark{font-size:160px;top:38%}
-      .brand{font-size:28px}
-    }
-  </style>
+        nav a:hover {
+            opacity: 0.7;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: center;
+            position: relative;
+        }
+
+        .image-section {
+            flex: 1;
+            position: relative;
+        }
+
+        .dealership-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .sample-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 120px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 
+                -3px -3px 0 #4a90e2,
+                3px -3px 0 #4a90e2,
+                -3px 3px 0 #4a90e2,
+                3px 3px 0 #4a90e2;
+            letter-spacing: 10px;
+            opacity: 0.9;
+        }
+
+        .info-wrapper {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+        }
+
+        .user-icon {
+            width: 150px;
+            height: 150px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .icon-head {
+            width: 60px;
+            height: 60px;
+            background-color: #00d4d4;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+
+        .icon-body {
+            width: 120px;
+            height: 100px;
+            background-color: #00d4d4;
+            border-radius: 50% 50% 0 0;
+        }
+
+        .divider {
+            width: 2px;
+            background-color: #ddd;
+            margin: 0 20px;
+        }
+
+        .contact-info {
+            flex: 1;
+            line-height: 2;
+        }
+
+        .contact-info h3 {
+            color: #5b9dd9;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .contact-info p {
+            color: #5b9dd9;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .contact-info a {
+            color: #5b9dd9;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-  <header>
-  
+    <header>
+        <div class="logo">Dealerships</div>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#about">About Us</a>
+            <a href="#contact">Contact Us</a>
+        </nav>
+    </header>
 
-  <main class="page">
-
-
-      <div class="content">
-        <div class="left">
-          <!-- simple svg support icon to mimic the screenshot -->
-          <svg class="support-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <g fill="none" fill-rule="evenodd">
-              <rect width="64" height="64" rx="6" fill="transparent"/>
-              <path d="M20 44c0-6 4-10 12-10s12 4 12 10v2H20v-2z" fill="#00c8bf"/>
-              <path d="M16 30c0-9 8-16 18-16s18 7 18 16v2H16v-2z" fill="#00c8bf" opacity="0.12"/>
-              <path d="M25 20c0-2 3-6 7-6s7 4 7 6v2H25v-2z" fill="#00c8bf"/>
-            </g>
-          </svg>
+    <div class="container">
+        <div class="contact-card">
+            <div class="content-wrapper">
+                <div class="image-section">
+                    <img src="/server/frontend/static/cars.jpeg" alt="Car Dealership" class="dealership-image">
+                    <!-- <img src="/server/frontend/static/car_dealership.jpg" ></img> -->
+                </div>
+            </div>
+            
+            <div class="info-wrapper">
+                <div class="user-icon">
+                    <div class="icon-head"></div>
+                    <div class="icon-body"></div>
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="contact-info">
+                    <h3>Contact Customer Service</h3>
+                    <p><a href="mailto:support@bestcars.com">support@bestcars.com</a></p>
+                    
+                    <h3>Contact our National Advertising team</h3>
+                    <p><a href="mailto:NationalSales@bestcars.com">NationalSales@bestcars.com</a></p>
+                    
+                    <h3>Contact our Public Relations team</h3>
+                    <p><a href="mailto:PR@bestcars.com">PR@bestcars.com</a></p>
+                    
+                    <h3>Contact the bestcars.com offices</h3>
+                    <p><a href="tel:312-611-1111">312-611-1111</a></p>
+                    
+                    <h3>Become a bestcars.com car dealer</h3>
+                    <p><a href="http://growwithbestcars.com" target="_blank">Visit growwithbestcars.com</a></p>
+                </div>
+            </div>
         </div>
-
-        <div class="divider" aria-hidden></div>
-
-        <div class="right">
-          <h3>Contact Customer Service</h3>
-          <p>support@bestcars.com</p>
-
-          <h3>Contact our National Advertising team</h3>
-          <p>NationalSales@bestcars.com</p>
-
-          <h3>Contact our Public Relations team</h3>
-          <p>PR@bestcars.com</p>
-
-          <h3>Contact the bestcars.com offices</h3>
-          <p>312-611-1111</p>
-
-          <p class="small">Become a bestcars.com car dealer<br>Visit growwithbestcars.com</p>
-        </div>
-      </div>
     </div>
-  </main>
-</body>
-</html>

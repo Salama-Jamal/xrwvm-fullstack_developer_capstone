@@ -3,37 +3,44 @@
 ## One-Line Commands (Copy & Paste)
 
 ### 1. Navigate to Directory
+
 ```bash
 cd server/djangoapp/microservices
 ```
 
 ### 2. Build Docker Image
+
 ```bash
 docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
 ```
 
 ### 3. Push to Registry
+
 ```bash
 docker push us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer
 ```
 
 ### 4. Deploy to Code Engine
+
 ```bash
 ibmcloud ce application create --name sentianalyzer --image us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer --registry-secret icr-secret --port 5000
 ```
 
 ### 5. Get Application URL
+
 ```bash
 ibmcloud ce application get --name sentianalyzer | grep URL
 ```
 
 ### 6. Test Deployment
+
 ```bash
 # Replace YOUR_URL with the actual URL from step 5
 curl YOUR_URL/analyze/Fantastic%20services
 ```
 
 ### 7. Update .env File
+
 ```bash
 # Replace YOUR_URL with the actual URL (include trailing slash!)
 echo "sentiment_analyzer_url=YOUR_URL/" >> ../.env
@@ -41,31 +48,36 @@ echo "sentiment_analyzer_url=YOUR_URL/" >> ../.env
 
 ## Expected Output Examples
 
-### After Build:
+### After Build
+
 ```
 Successfully built abc123def456
 Successfully tagged us.icr.io/your-namespace/senti_analyzer:latest
 ```
 
-### After Push:
+### After Push
+
 ```
 The push refers to repository [us.icr.io/your-namespace/senti_analyzer]
 latest: digest: sha256:abc123... size: 1234
 ```
 
-### After Deploy:
+### After Deploy
+
 ```
 Creating application 'sentianalyzer'...
 OK
 Run 'ibmcloud ce application get -n sentianalyzer' to see more details.
 ```
 
-### Application URL:
+### Application URL
+
 ```
 https://sentianalyzer.xxxxxxxxx.us-south.codeengine.appdomain.cloud
 ```
 
-### Test Response:
+### Test Response
+
 ```json
 {"sentiment": "positive"}
 ```
@@ -73,6 +85,7 @@ https://sentianalyzer.xxxxxxxxx.us-south.codeengine.appdomain.cloud
 ## Automated Script
 
 For automated deployment, use:
+
 ```bash
 chmod +x deploy.sh
 ./deploy.sh

@@ -17,26 +17,33 @@ This microservice provides REST API endpoints to analyze the sentiment of text i
 ## API Endpoints
 
 ### 1. Welcome Endpoint
+
 ```
 GET /
 ```
+
 Returns a welcome message with usage instructions.
 
 **Response:**
+
 ```
 Welcome to the Sentiment Analyzer. Use /analyze/text to get the sentiment
 ```
 
 ### 2. Analyze Sentiment
+
 ```
 GET /analyze/<text>
 ```
+
 Analyzes the sentiment of the provided text.
 
 **Parameters:**
+
 - `text` (string): The text to analyze (URL encoded)
 
 **Response:**
+
 ```json
 {
   "sentiment": "positive" | "negative" | "neutral"
@@ -44,6 +51,7 @@ Analyzes the sentiment of the provided text.
 ```
 
 **Examples:**
+
 ```bash
 # Positive sentiment
 curl https://your-url/analyze/I%20love%20this%20product
@@ -79,6 +87,7 @@ microservices/
 ## Local Development
 
 ### Prerequisites
+
 - Python 3.9+
 - pip
 - Virtual environment (recommended)
@@ -86,31 +95,38 @@ microservices/
 ### Setup
 
 1. **Create virtual environment:**
+
    ```bash
    python3 -m venv venv
    source venv/bin/activate  # On Windows: venv\Scripts\activate
    ```
 
 2. **Install dependencies:**
+
    ```bash
    pip install -r requirements.txt
    ```
 
 3. **Download NLTK data:**
+
    ```python
    python3 -c "import nltk; nltk.download('vader_lexicon')"
    ```
 
 4. **Run the application:**
+
    ```bash
    python3 app.py
    ```
+
    Or:
+
    ```bash
    flask run --host=0.0.0.0 --port=5000
    ```
 
 5. **Test locally:**
+
    ```bash
    curl http://localhost:5000/
    curl http://localhost:5000/analyze/This%20is%20great
@@ -119,16 +135,19 @@ microservices/
 ## Docker Deployment
 
 ### Build Image
+
 ```bash
 docker build -t senti_analyzer .
 ```
 
 ### Run Container
+
 ```bash
 docker run -p 5000:5000 senti_analyzer
 ```
 
 ### Test Container
+
 ```bash
 curl http://localhost:5000/analyze/Amazing%20service
 ```
@@ -138,21 +157,25 @@ curl http://localhost:5000/analyze/Amazing%20service
 ### Quick Deploy (Automated)
 
 1. **Make scripts executable:**
+
    ```bash
    chmod +x deploy.sh update_env.sh test_deployment.sh
    ```
 
 2. **Run deployment:**
+
    ```bash
    ./deploy.sh
    ```
 
 3. **Update .env file:**
+
    ```bash
    ./update_env.sh
    ```
 
 4. **Test deployment:**
+
    ```bash
    ./test_deployment.sh
    ```
@@ -180,6 +203,7 @@ print(result)  # {'sentiment': 'positive'}
 ### Configuration
 
 Add to `server/djangoapp/.env`:
+
 ```
 sentiment_analyzer_url=https://your-code-engine-url/
 ```
@@ -212,6 +236,7 @@ The service uses NLTK's VADER (Valence Aware Dictionary and sEntiment Reasoner):
 ## Testing
 
 ### Unit Tests
+
 ```bash
 # Test welcome endpoint
 curl https://your-url/
@@ -227,6 +252,7 @@ curl https://your-url/analyze/It%20is%20okay
 ```
 
 ### Automated Testing
+
 ```bash
 ./test_deployment.sh
 ```
@@ -236,17 +262,20 @@ curl https://your-url/analyze/It%20is%20okay
 ### Common Issues
 
 1. **NLTK data not found**
+
    ```bash
    python3 -c "import nltk; nltk.download('vader_lexicon')"
    ```
 
 2. **Port already in use**
+
    ```bash
    # Change port in Dockerfile or use different port
    flask run --port=5001
    ```
 
 3. **Docker build fails**
+
    ```bash
    # Clear Docker cache
    docker system prune -a
@@ -254,6 +283,7 @@ curl https://your-url/analyze/It%20is%20okay
    ```
 
 4. **Code Engine deployment fails**
+
    ```bash
    # Check application status
    ibmcloud ce application get --name sentianalyzer
@@ -278,16 +308,19 @@ curl https://your-url/analyze/It%20is%20okay
 ## Monitoring
 
 ### Check Application Status
+
 ```bash
 ibmcloud ce application get --name sentianalyzer
 ```
 
 ### View Logs
+
 ```bash
 ibmcloud ce application logs --name sentianalyzer --follow
 ```
 
 ### Metrics
+
 ```bash
 ibmcloud ce application events --name sentianalyzer
 ```
@@ -295,6 +328,7 @@ ibmcloud ce application events --name sentianalyzer
 ## Maintenance
 
 ### Update Deployment
+
 ```bash
 # Rebuild and push new image
 docker build -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer .
@@ -306,6 +340,7 @@ ibmcloud ce application update --name sentianalyzer \
 ```
 
 ### Delete Deployment
+
 ```bash
 ibmcloud ce application delete --name sentianalyzer
 ```
@@ -325,6 +360,7 @@ This project is part of the IBM Full Stack Developer Capstone.
 ## Support
 
 For issues or questions:
+
 1. Check [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
 2. Review [QUICK_DEPLOY.md](QUICK_DEPLOY.md)
 3. Check IBM Code Engine documentation
@@ -333,6 +369,7 @@ For issues or questions:
 ## Contributing
 
 To improve the sentiment analyzer:
+
 1. Modify `app.py` with your changes
 2. Test locally
 3. Rebuild Docker image
@@ -342,6 +379,7 @@ To improve the sentiment analyzer:
 ## Future Enhancements
 
 Potential improvements:
+
 - [ ] Add authentication/API keys
 - [ ] Support batch analysis
 - [ ] Add more sentiment categories (very positive, very negative)

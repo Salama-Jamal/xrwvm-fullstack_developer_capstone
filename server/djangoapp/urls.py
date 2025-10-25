@@ -9,7 +9,7 @@ urlpatterns = [
     path('login', view=views.login_user, name='login'),
     path('logout', view=views.logout_user, name='logout'),
     path('register', view=views.registration, name='register'),
-    path('get_dealers', view=views.get_dealerships, name='get_dealers'),
+    path('get_dealers/', view=views.get_dealerships, name='get_dealers'),
     path('get_dealers/<str:state>', view=views.get_dealerships, name='get_dealers_by_state'),
     path('dealer_reviews/<int:dealer_id>', view=views.get_dealer_reviews, name='dealer_reviews'),
     path('dealer_details/<int:dealer_id>', view=views.get_dealer_details, name='dealer_details'),

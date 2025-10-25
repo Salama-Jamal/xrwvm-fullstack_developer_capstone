@@ -10,21 +10,21 @@ bash: docker: command not found
 ### Solutions
 
 #### Solution A: Start Docker Desktop (Most Common)
-1. **Open Docker Desktop application**
-   - Look for Docker in your Applications folder
-   - Or search for "Docker" in Spotlight (Cmd + Space)
-   
-2. **Wait for Docker to start**
-   - You'll see a whale icon in your menu bar
-   - Wait until it says "Docker Desktop is running"
-   
-3. **Verify Docker is running**
-   ```bash
-   docker --version
-   docker ps
-   ```
+
+1.  **Open Docker Desktop application**
+    *   Look for Docker in your Applications folder
+    *   Or search for "Docker" in Spotlight (Cmd + Space)
+2.  **Wait for Docker to start**
+    *   You'll see a whale icon in your menu bar
+    *   Wait until it says "Docker Desktop is running"
+3.  **Verify Docker is running**
+    ```bash
+    docker --version
+    docker ps
+    ```
 
 #### Solution B: Add Docker to PATH
+
 If Docker Desktop is running but command not found:
 
 ```bash
@@ -36,13 +36,14 @@ docker --version
 ```
 
 #### Solution C: Install Docker Desktop
+
 If Docker is not installed:
 
-1. Download from: https://www.docker.com/products/docker-desktop
-2. Install Docker Desktop for Mac
-3. Open Docker Desktop
-4. Wait for it to start
-5. Try docker commands again
+1.  Download from: https://www.docker.com/products/docker-desktop
+2.  Install Docker Desktop for Mac
+3.  Open Docker Desktop
+4.  Wait for it to start
+5.  Try docker commands again
 
 ---
 
@@ -287,7 +288,7 @@ But you still need to build and push the Docker image first using Docker Desktop
 ## Summary of Required Tools
 
 | Tool | Check Command | Install/Setup |
-|------|---------------|---------------|
+| --- | --- | --- |
 | Docker Desktop | `docker --version` | https://www.docker.com/products/docker-desktop |
 | IBM Cloud CLI | `ibmcloud --version` | https://cloud.ibm.com/docs/cli |
 | Code Engine Plugin | `ibmcloud plugin list` | `ibmcloud plugin install code-engine` |

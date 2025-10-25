@@ -99,6 +99,7 @@
 ## 🖥️ Terminal Commands Visualization
 
 ### Command 1: Navigate
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ cd server/djangoapp/microservices                         │
@@ -109,6 +110,7 @@
 ```
 
 ### Command 2: Docker Build
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ docker build . -t us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer│
@@ -132,6 +134,7 @@
 ```
 
 ### Command 3: Docker Push
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ docker push us.icr.io/${SN_ICR_NAMESPACE}/senti_analyzer │
@@ -148,6 +151,7 @@
 ```
 
 ### Command 4: Code Engine Deploy
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ ibmcloud ce application create --name sentianalyzer \    │
@@ -163,6 +167,7 @@
 ```
 
 ### Command 5: Get URL
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ ibmcloud ce application get --name sentianalyzer         │
@@ -182,6 +187,7 @@
 ```
 
 ### Command 6: Test
+
 ```bash
 ┌─────────────────────────────────────────────────────────────┐
 │ $ curl https://sentianalyzer.xxxxx.codeengine.appdomain.cloud/analyze/Fantastic%20services│
@@ -217,6 +223,7 @@
 ### Screenshot Requirements
 
 ✅ **Good Screenshot:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ Address Bar: https://sentianalyzer.xxxxx.../analyze/Fantastic%20services│
@@ -226,6 +233,7 @@
 ```
 
 ❌ **Bad Screenshot:**
+
 ```
 ┌─────────────────────────────────────────────────────────────────┐
 │ Address Bar: [Not visible or cut off]                          │
@@ -239,6 +247,7 @@
 ## 📝 .env File Configuration
 
 ### Before (Default)
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ File: server/djangoapp/.env                                 │
@@ -249,6 +258,7 @@
 ```
 
 ### After (Updated)
+
 ```
 ┌─────────────────────────────────────────────────────────────┐
 │ File: server/djangoapp/.env                                 │
@@ -342,21 +352,22 @@ Input Text: "Fantastic services"
 ## 📊 Testing Matrix
 
 | Input Text | Expected Sentiment | Test Status |
-|------------|-------------------|-------------|
-| "Fantastic services" | positive | [ ] |
-| "Excellent product" | positive | [ ] |
-| "Amazing experience" | positive | [ ] |
-| "Terrible service" | negative | [ ] |
-| "Horrible experience" | negative | [ ] |
-| "Worst ever" | negative | [ ] |
-| "It is okay" | neutral | [ ] |
-| "Average service" | neutral | [ ] |
+| --- | --- | --- |
+| "Fantastic services" | positive | \[ ] |
+| "Excellent product" | positive | \[ ] |
+| "Amazing experience" | positive | \[ ] |
+| "Terrible service" | negative | \[ ] |
+| "Horrible experience" | negative | \[ ] |
+| "Worst ever" | negative | \[ ] |
+| "It is okay" | neutral | \[ ] |
+| "Average service" | neutral | \[ ] |
 
 ---
 
 ## 🚦 Status Indicators
 
 ### Deployment Status
+
 ```
 🔴 Not Started    - Haven't begun deployment
 🟡 In Progress    - Currently deploying
@@ -364,6 +375,7 @@ Input Text: "Fantastic services"
 ```
 
 ### Test Results
+
 ```
 ✅ Passed         - Test successful
 ❌ Failed         - Test failed
@@ -372,6 +384,7 @@ Input Text: "Fantastic services"
 ```
 
 ### Application Health
+
 ```
 🟢 Healthy        - All systems operational
 🟡 Degraded       - Some issues detected
@@ -407,6 +420,7 @@ Need to deploy?
 ## 📱 Mobile-Friendly Testing
 
 If testing from mobile browser:
+
 ```
 1. Open browser on phone
 2. Navigate to: [YOUR_URL]/analyze/test
@@ -460,14 +474,14 @@ Status: Ready?
 
 You know deployment is successful when you see:
 
-1. ✅ Docker build completes without errors
-2. ✅ Docker push shows "digest: sha256:..."
-3. ✅ Code Engine shows "OK"
-4. ✅ Application status shows "Ready: true"
-5. ✅ curl returns `{"sentiment": "positive"}`
-6. ✅ Browser displays JSON correctly
-7. ✅ Django integration works
-8. ✅ No errors in logs
+1.  ✅ Docker build completes without errors
+2.  ✅ Docker push shows "digest: sha256:..."
+3.  ✅ Code Engine shows "OK"
+4.  ✅ Application status shows "Ready: true"
+5.  ✅ curl returns `{"sentiment": "positive"}`
+6.  ✅ Browser displays JSON correctly
+7.  ✅ Django integration works
+8.  ✅ No errors in logs
 
 ---
 

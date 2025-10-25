@@ -23,7 +23,7 @@ Welcome! This index will help you navigate all the documentation for deploying t
 ### 🎯 Essential Reading
 
 | File | Purpose | Read Time | When to Use |
-|------|---------|-----------|-------------|
+| --- | --- | --- | --- |
 | [README.md](README.md) | Complete microservice documentation | 10 min | Understanding the service |
 | [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md) | Detailed step-by-step deployment | 15 min | First-time deployment |
 | [QUICK_DEPLOY.md](QUICK_DEPLOY.md) | Quick reference commands | 2 min | Quick lookup |
@@ -32,7 +32,7 @@ Welcome! This index will help you navigate all the documentation for deploying t
 ### 📋 Planning & Tracking
 
 | File | Purpose | When to Use |
-|------|---------|-------------|
+| --- | --- | --- |
 | [DEPLOYMENT_CHECKLIST.md](DEPLOYMENT_CHECKLIST.md) | Track deployment progress | During deployment |
 | [TODO.md](../../../TODO.md) | Task list and status | Project planning |
 | [DEPLOYMENT_SUMMARY.md](../../../DEPLOYMENT_SUMMARY.md) | Overall project summary | Overview |
@@ -40,7 +40,7 @@ Welcome! This index will help you navigate all the documentation for deploying t
 ### 🛠️ Scripts & Tools
 
 | File | Purpose | How to Use |
-|------|---------|------------|
+| --- | --- | --- |
 | [deploy.sh](deploy.sh) | Automated deployment | `./deploy.sh` |
 | [update_env.sh](update_env.sh) | Update .env file | `./update_env.sh` |
 | [test_deployment.sh](test_deployment.sh) | Test deployment | `./test_deployment.sh` |
@@ -48,7 +48,7 @@ Welcome! This index will help you navigate all the documentation for deploying t
 ### 📦 Application Files
 
 | File | Purpose |
-|------|---------|
+| --- | --- |
 | [app.py](app.py) | Flask sentiment analyzer |
 | [Dockerfile](Dockerfile) | Container configuration |
 | [requirements.txt](requirements.txt) | Python dependencies |
@@ -126,7 +126,7 @@ Welcome! This index will help you navigate all the documentation for deploying t
 ## 📊 Documentation Statistics
 
 | Category | Files | Total Pages |
-|----------|-------|-------------|
+| --- | --- | --- |
 | Guides | 4 | ~40 pages |
 | Scripts | 3 | Executable |
 | Checklists | 2 | Interactive |
@@ -234,7 +234,7 @@ ibmcloud ce application logs --name sentianalyzer
 ## 🎨 File Type Legend
 
 | Icon | Type | Description |
-|------|------|-------------|
+| --- | --- | --- |
 | 📘 | Guide | Step-by-step instructions |
 | 📋 | Checklist | Progress tracking |
 | 🔧 | Script | Executable automation |
@@ -304,7 +304,7 @@ After deployment:
 ## ✅ Documentation Completeness
 
 | Section | Status |
-|---------|--------|
+| --- | --- |
 | Overview | ✅ Complete |
 | Deployment | ✅ Complete |
 | Configuration | ✅ Complete |

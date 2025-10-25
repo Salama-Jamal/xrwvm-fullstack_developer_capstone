@@ -13,10 +13,10 @@
 </head>
 <body>
     <!-- Header Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+    <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
         <div class="container-fluid">
-            <a class="navbar-brand" href="/" style="text-decoration: none;">
-                <h2 style="padding-right: 5%; margin: 0; color: white;">Dealerships</h2>
+            <a class="navbar-brand brand-title-link" href="/">
+                <h2 class="brand-title">Dealerships</h2>
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -24,21 +24,18 @@
             <div class="collapse navbar-collapse" id="navbarText">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" 
-                           style="font-size: larger; color: white;" aria-current="page" href="/">Home</a>
+                        <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" 
-                           style="font-size: larger; color: white;" href="/about/">About Us</a>
+                        <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="/about/">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" 
-                           style="font-size: larger; color: white;" href="/contact/">Contact Us</a>
+                        <a class="nav-link nav-link-custom {% if request.resolver_match.url_name == 'contact' %}active{% endif %}" href="/contact/">Contact Us</a>
                     </li>
                     
                 </ul>
                 <span class="navbar-text">
-                    <div class="loginlink" id="loginlogout" style="color: white;">
+                    <div class="loginlink" id="loginlogout">
                         <!-- Login/Logout links will be populated by JavaScript -->
                     </div>
                 </span>
@@ -53,7 +50,7 @@
     </main>
 
     <!-- Footer (optional) -->
-    <footer class="mt-5 py-3" style="background-color: #f8f9fa;">
+    <footer class="mt-5 py-3 footer-custom">
         <div class="container text-center">
             <p class="mb-0">&copy; 2025 Dealerships. All rights reserved.</p>
         </div>
@@ -72,12 +69,12 @@
 
             if (curr_user && curr_user !== "") {
                 document.getElementById("loginlogout").innerHTML = 
-                '<span class="homepage_links" style="margin-right: 10px;">' + curr_user + '</span>' +
-                '<a class="homepage_links" onclick="logout()" href="#" style="color: white; text-decoration: none;">Logout</a>';
+                '<span class="homepage_links navbar-text-link username-badge">' + curr_user + '</span>' +
+                '<a class="homepage_links navbar-text-link" onclick="logout()" href="#">Logout</a>';
             } else {
                 document.getElementById("loginlogout").innerHTML = 
-                '<a class="homepage_links" href="/login" style="color: white; text-decoration: none; margin-right: 10px;">Login</a>' +
-                '<a class="homepage_links" href="/register" style="color: white; text-decoration: none;">Register</a>';
+                '<a class="homepage_links navbar-text-link mr-10" href="/login">Login</a>' +
+                '<a class="homepage_links navbar-text-link" href="/register">Register</a>';
             }
         };
 

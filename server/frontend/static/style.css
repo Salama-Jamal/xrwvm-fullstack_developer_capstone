@@ -124,3 +124,53 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+/* ====== Global Header/Navbar styles moved from inline ====== */
+.navbar-custom {
+  background-color: darkturquoise;
+  height: 1in;
+}
+.brand-title {
+  padding-right: 5%;
+  margin: 0;
+  color: white;
+}
+.brand-title-link {
+  text-decoration: none;
+}
+.nav-link-custom {
+  font-size: larger;
+  color: white !important;
+}
+.nav-link-custom.active {
+  text-decoration: underline;
+}
+.navbar-text-link {
+  color: white;
+  text-decoration: none;
+}
+.username-badge {
+  margin-right: 10px;
+}
+.mr-10 {
+  margin-right: 10px;
+}
+
+/* ====== Footer style moved from inline ====== */
+.footer-custom {
+  background-color: #f8f9fa;
+}
+
+/* ====== Home page inline styles moved to classes ====== */
+.home-container {
+  display: flex;
+  flex-direction: column;
+}
+.home-card {
+  width: 50%;
+  margin: 50px auto 0 auto; /* centers and adds top margin */
+}
+.cta-btn {
+  background-color: aqua;
+  margin: 10px;
+}

@@ -75,7 +75,7 @@ end
 # Unset irrelevant variables.
 deactivate nondestructive
 
-set -gx VIRTUAL_ENV /Users/Salama/IBM/xrwvm-fullstack_developer_capstone/server/djangoenv
+set -gx VIRTUAL_ENV /Users/Salama/Documents/xrwvm-fullstack_developer_capstone/server/djangoenv
 
 # https://github.com/fish-shell/fish-shell/issues/436 altered PATH handling
 if test (string sub -s 1 -l 1 $FISH_VERSION) -lt 3

@@ -1,2 +1,9 @@
 - [x] Create server/Dockerfile with base image, requirements installation, workdir, expose port, and gunicorn command
 - [x] Create server/entrypoint.sh with migration and database setup script
+- [x] Create superuser 'root' with password 'root'
+- [x] Build frontend client with npm install and npm run build in server/frontend
+- [x] Start Django server with python3 manage.py runserver in server/
+- [x] Navigate to http://localhost:8000/get_cars to populate database and capture cars screenshot (cars.jpg or cars.png) - Tested via curl, endpoint returns correct JSON with 10 car models from 5 makes
+- [ ] Login to admin at http://localhost:8000/admin with root/root, capture admin_login screenshot
+- [ ] Logout from admin, capture admin_logout screenshot
+- [ ] Navigate to Car models in admin, capture car models screenshot (car models.jpg or car models.png)
